@@ -9,10 +9,13 @@ html {
 }
 
 body {
-    
     color: @color-white;
     font-size: 16px;
-    font-family: Arial;    
+    font-family: Arial; 
+}
+
+* {
+    .box-sizing(border-box);
 }
 
 .is-invisible {
@@ -39,6 +42,7 @@ body {
 .app__inner {
     position: absolute;
     width: 320px;
+    padding: 0 20px;
     top: 0;
     bottom: 0;
     left: 0;
@@ -58,15 +62,21 @@ body {
 
 .logo__main {
     font-size: 2em;
+    font-weight: 400;
 }
 
 .logo__sub {
     font-size: 1.2em;
+    font-weight: 100;
 }
 
 /* ------------------------------------------------------------ */
 /* ------ VALUE ENTRY ----------------------------------------- */
 /* ------------------------------------------------------------ */
+
+.form--value {
+    border-bottom: 1px solid @color-white;
+}
 
 .current-value {
     border: 0 none;
@@ -75,6 +85,12 @@ body {
     left: 0;
     font: inherit;
     color: inherit;
+    outline: none;
+
+    font-weight: 100;
+
+    height: 30px;
+    line-height: 30px;
 }
 
 /* ------------------------------------------------------------ */

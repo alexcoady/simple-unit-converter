@@ -5,8 +5,9 @@
 		<h2 class="logo__sub">Unit converter</h2>
 	</hgroup>
 	
-	<form>
-	    <input class="current-value" type="text" id="current-value" ng-model="currentValue" placeholder="Enter value" />
+	<!-- TODO: Validate form entry (must be floating point number) -->
+	<form name="form" class="form--value" novalidate>
+	    <input class="current-value" type="text" id="current-value" ng-model="currentValue" />
 
 	    <button class="btn" ng-bind="currentType.name" ng-click="selectType()"></button>
 	    <button class="btn" ng-bind="currentUnit.short" ng-click="selectUnit()"></button>
