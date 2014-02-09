@@ -1,33 +1,40 @@
-<form>
-    <div class="control-group">
-        <input type="text" ng-model="currentValue" />
-    </div>
+<div class="app__inner" ng-class="{ 'is-pushed-right': selectingType || selectingUnit }">
+	
+	<hgroup class="logo">
+		<h1 class="logo__main">Scales</h1>
+		<h2 class="logo__sub">Unit converter</h2>
+	</hgroup>
+	
+	<form>
+	    <input class="current-value" type="text" id="current-value" ng-model="currentValue" placeholder="Enter value" />
 
-    <button class="btn" ng-bind="currentType.name" ng-click="selectType()"></button>
-    <button class="btn" ng-bind="currentUnit.short" ng-click="selectUnit()"></button>
-</form>
+	    <button class="btn" ng-bind="currentType.name" ng-click="selectType()"></button>
+	    <button class="btn" ng-bind="currentUnit.short" ng-click="selectUnit()"></button>
+	</form>
+
+	<!-- TODO: Make this a seperate view (results) -->
+	<h2 class="is-invisible">Results</h2>
+	<table class="results table">
+		<thead>
+			<th ng-bind="currentUnit.short"></th>
+			<th ng-bind="currentValue"></th>
+		</thead>
+		<tr ng-repeat="unit in currentType.units" ng-show="unit != currentUnit">
+			<td ng-bind="unit.short"></td>
+			<td ng-bind="unit.fromKey()"></td>
+		</tr>
+	</table>
+
+</div> <!-- .app__inner -->
 
 <!-- TODO: Make this a seperare view (type-select) -->
-<div ng-show="selectingType">
+<div ng-class="{ 'is-active': selectingType }" class="popup popup--type">
 	<h4>Types</h4>
-	<button class="btn" ng-repeat="type in types" ng-bind="type.name" ng-class="{'btn-primary': type == currentType}" ng-click="switchType(type)"></button>
+	<button class="button button--select" ng-repeat="type in types" ng-bind="type.name" ng-class="{'btn-primary': type == currentType}" ng-click="switchType(type)"></button>
 </div>
 
 <!-- TODO: Make this a seperare view (unit-select) -->
-<div ng-show="selectingUnit">
+<div ng-class="{ 'is-active': selectingUnit }" class="popup popup--unit">
 	<h4>Convert from</h4>
-	<button class="btn" ng-repeat="unit in currentType.units" ng-bind="unit.name + ' (' + unit.short + ')'" ng-class="{'btn-primary': unit == currentUnit}" ng-click="switchUnit(unit)"></button>
+	<button class="button button--select" ng-repeat="unit in currentType.units" ng-bind="unit.name + ' (' + unit.short + ')'" ng-class="{'btn-primary': unit == currentUnit}" ng-click="switchUnit(unit)"></button>
 </div>
-
-<!-- TODO: Make this a seperate view (results) -->
-<h2>Results</h2>
-<table class="results table">
-	<thead>
-		<th ng-bind="currentUnit.short"></th>
-		<th ng-bind="currentValue"></th>
-	</thead>
-	<tr ng-repeat="unit in currentType.units" ng-show="unit != currentUnit">
-		<td ng-bind="unit.short"></td>
-		<td ng-bind="unit.fromKey()"></td>
-	</tr>
-</table>
