@@ -14,17 +14,23 @@
 	</form>
 
 	<!-- TODO: Make this a seperate view (results) -->
-	<h2 class="is-invisible">Results</h2>
-	<table class="results table">
-		<thead>
-			<th ng-bind="currentUnit.short"></th>
-			<th ng-bind="currentValue"></th>
-		</thead>
-		<tr ng-repeat="unit in currentType.units" ng-show="unit != currentUnit">
-			<td ng-bind="unit.short"></td>
-			<td ng-bind="unit.fromKey()"></td>
-		</tr>
-	</table>
+	<div class="results">
+		<h2 class="is-invisible">Results</h2>
+		<table class="results__table">
+			<thead class="is-invisible">
+				<th>Unit</th>
+				<th>Value</th>
+			</thead>
+			<tr>
+				<td class="result-item--current result-item__unit" ng-bind="currentUnit.short"></td>
+				<td class="result-item--current result-item__value" ng-bind="currentValue"></td>
+			</tr>
+			<tr class="result-item" ng-repeat="unit in currentType.units" ng-show="unit != currentUnit">
+				<td class="result-item__unit" ng-bind="unit.short"></td>
+				<td class="result-item__value" ng-bind="unit.fromKey()"></td>
+			</tr>
+		</table>
+	</div>
 
 </div> <!-- .app__inner -->
 
