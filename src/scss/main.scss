@@ -1,0 +1,180 @@
+@import 'compass';
+@import 'compass/reset';
+
+// Variables
+@import 'variables';
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    color: $color-white;
+    font-size: 16px;
+    font-family: Arial; 
+}
+
+* {
+    @include box-sizing(border-box);
+}
+
+.is-invisible {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+/* ------------------------------------------------------------ */
+/* ------ APP ------------------------------------------------- */
+/* ------------------------------------------------------------ */
+
+.app {
+    position: relative;
+    width: 320px;
+    height: 570px;
+    background: $color-blue;
+    overflow: hidden;
+}
+
+.app__inner {
+    position: absolute;
+    width: 320px;
+    padding: 0 20px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    @include transition(left 300ms);
+
+    &.is-pushed-right {
+        left: $popup-width;
+    }
+}
+
+/* ------------------------------------------------------------ */
+/* ------ LOGO ------------------------------------------------ */
+/* ------------------------------------------------------------ */
+
+.logo {
+    margin-top: 20px;
+}
+
+.logo__main {
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.logo__sub {
+    font-size: 1.2em;
+    font-weight: 100;
+}
+
+/* ------------------------------------------------------------ */
+/* ------ VALUE ENTRY ----------------------------------------- */
+/* ------------------------------------------------------------ */
+
+.form--value {
+    margin-top: 50px;
+    border-bottom: 1px solid $color-blue-pale;
+}
+
+.current-value {
+    border: 0 none;
+    background: transparent;
+    padding: 0;
+    left: 0;
+    font: inherit;
+    color: inherit;
+    outline: none;
+
+    font-weight: 100;
+
+    height: 30px;
+    line-height: 30px;
+}
+
+/* ------------------------------------------------------------ */
+/* ------ RESULTS --------------------------------------------- */
+/* ------------------------------------------------------------ */
+
+.results {
+    margin-top: 50px;
+}
+
+.results__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.result-item {
+    height: 45px;
+}
+
+.result-item__unit,
+.result-item__value {
+    width: 50%;
+    text-align: center;
+    line-height: 45px;
+}
+
+.result-item__unit {
+    font-weight: 600;
+    border-right: 1px solid $color-blue-pale;
+}
+
+.result-item__value {}
+
+/* ------------------------------------------------------------ */
+/* ------ POPUPS ---------------------------------------------- */
+/* ------------------------------------------------------------ */
+
+.popup {
+    position: absolute;
+    left: $popup-width * -1;
+    top: 0;
+    bottom: 0;
+    width: $popup-width;
+    background: $color-white;
+    @include transition(left 300ms);
+
+    &.is-active {
+        left: 0;
+    }
+}
+
+button {
+    border: 0 none;
+    background: transparent;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.button--select {
+    display: block;
+    width: 75px;
+    height: 75px;
+    padding: 5px;
+    margin: 0 auto 10px;
+    background: $color-mud;
+    font-size: 0.8em;
+
+    @include border-radius(40px);
+
+    &.is-current {
+        background-color: $color-white;
+        border: 5px solid $color-mud;
+        color: $color-mud;
+    }
+}
