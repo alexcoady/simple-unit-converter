@@ -23,11 +23,11 @@
 			</thead>
 			<tr>
 				<td class="result-item--current result-item__unit" ng-bind="currentUnit.short"></td>
-				<td class="result-item--current result-item__value" ng-bind="currentValue"></td>
+				<td class="result-item--current result-item__value" ng-bind="currentUnit.fromKey() | number:2"></td>
 			</tr>
 			<tr class="result-item" ng-repeat="unit in currentType.units" ng-show="unit != currentUnit">
-				<td class="result-item__unit" ng-bind="unit.short"></td>
-				<td class="result-item__value" ng-bind="unit.fromKey()"></td>
+				<td class="result-item__unit" ng-bind="unit.name"></td>
+				<td class="result-item__value" ng-bind="unit.fromKey() | number:2"></td>
 			</tr>
 		</table>
 	</div>
