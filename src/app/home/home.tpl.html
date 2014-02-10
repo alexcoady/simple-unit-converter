@@ -37,11 +37,11 @@
 <!-- TODO: Make this a seperare view (type-select) -->
 <div ng-class="{ 'is-active': selectingType }" class="popup popup--type">
 	<h4>Types</h4>
-	<button class="button button--select" ng-repeat="type in types" ng-bind="type.name" ng-class="{'btn-primary': type == currentType}" ng-click="switchType(type)"></button>
+	<button class="button button--select" ng-repeat="type in types" ng-bind="type.name" ng-class="{'is-current': type == currentType}" ng-click="switchType(type)"></button>
 </div>
 
 <!-- TODO: Make this a seperare view (unit-select) -->
 <div ng-class="{ 'is-active': selectingUnit }" class="popup popup--unit">
 	<h4>Convert from</h4>
-	<button class="button button--select" ng-repeat="unit in currentType.units" ng-bind="unit.name + ' (' + unit.short + ')'" ng-class="{'btn-primary': unit == currentUnit}" ng-click="switchUnit(unit)"></button>
+	<button class="button button--select" ng-repeat="unit in currentType.units" ng-bind="unit.name + ' (' + unit.short + ')'" ng-class="{'is-current': unit == currentUnit}" ng-click="switchUnit(unit)"></button>
 </div>
