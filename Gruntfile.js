@@ -461,7 +461,7 @@ grunt.initConfig( grunt.util._.extend( taskConfig, userConfig ) );
    * before watching for changes.
    */
    grunt.renameTask( 'watch', 'delta' );
-   grunt.registerTask( 'watch', [ 'build', 'karma:unit', 'delta' ] );
+   grunt.registerTask( 'watch', [ 'build', 'delta' ] );
 
   /**
    * The default task is to build and compile.
@@ -474,8 +474,7 @@ grunt.initConfig( grunt.util._.extend( taskConfig, userConfig ) );
    grunt.registerTask( 'build', [
     'clean', 'html2js', 'jshint', 'compass:build', 
     'copy:build_app_assets', 'copy:build_vendor_assets',
-    'copy:build_appjs', 'copy:build_vendorjs', 'index:build', 'karmaconfig',
-    'karma:continuous' 
+    'copy:build_appjs', 'copy:build_vendorjs', 'index:build'
     ]);
 
   /**

@@ -53,11 +53,12 @@ body {
     bottom: 0;
     left: 0;
 
-    @include transition(left 300ms);
-
+    @include transition(all 300ms);
+    @include transform(translate(0, 0));
+    
     &.is-pushed-right {
-        left: $popup-width;
-    }
+        @include transform(translate(($popup-width), 0));
+    } 
 }
 
 /* ------------------------------------------------------------ */
@@ -139,15 +140,17 @@ body {
 
 .popup {
     position: absolute;
-    left: $popup-width * -1;
+    // left: $popup-width * -1;
     top: 0;
     bottom: 0;
     width: $popup-width;
     background: $color-white;
-    @include transition(left 300ms);
+    
+    @include transition(all 300ms);
+    @include transform(translate(($popup-width*-1), 0));
 
     &.is-active {
-        left: 0;
+        @include transform(translate(0, 0));
     }
 }
 
