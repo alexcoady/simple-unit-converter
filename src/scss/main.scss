@@ -140,11 +140,13 @@ body {
 
 .popup {
     position: absolute;
-    // left: $popup-width * -1;
+    left: 0;
     top: 0;
     bottom: 0;
     width: $popup-width;
     background: $color-white;
+
+    padding-top: 20px;
     
     @include transition(all 300ms);
     @include transform(translate(($popup-width*-1), 0));
@@ -162,6 +164,7 @@ button {
     cursor: pointer;
     margin: 0;
     padding: 0;
+    outline: none;
 }
 
 .button--select {
@@ -170,7 +173,7 @@ button {
     height: 75px;
     padding: 5px;
     margin: 0 auto 10px;
-    background: $color-mud;
+    background-color: $color-mud;
     font-size: 0.8em;
 
     @include border-radius(40px);
